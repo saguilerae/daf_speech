@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='utf-8'?>
+<JUCERPROJECT id="Bd9GIC" name="daf_speech" projectType="guiapp" useAppConfig="0" addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" bundleIdentifier="com.innlabs.dafSpeech" pluginManufacturer="InnLabs">
+  <MAINGROUP name="Source"><FILE name="Main.mm" file="Main.mm" compile="1" resource="0" /><FILE name="DAFAudioProcessor.cpp" file="DAFAudioProcessor.cpp" compile="1" resource="0" /><FILE name="DAFAudioProcessor.h" file="DAFAudioProcessor.h" compile="0" resource="0" /><FILE name="DAFAudioProcessorEditor.mm" file="DAFAudioProcessorEditor.mm" compile="1" resource="0" /><FILE name="DAFAudioProcessorEditor.h" file="DAFAudioProcessorEditor.h" compile="0" resource="0" /><FILE name="AudioLevelLabel.cpp" file="AudioLevelLabel.cpp" compile="1" resource="0" /><FILE name="AudioLevelLabel.h" file="AudioLevelLabel.h" compile="0" resource="0" /></MAINGROUP><MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1" />
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1" />
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1" />
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1" />
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1" />
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1" />
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1" />
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1" />
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1" />
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1" />
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1" />
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1" />
+  </MODULES>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" />
+  <EXPORTFORMATS>
+    <ANDROIDSTUDIO targetFolder="Builds/Android">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="daf_speech" />
+        <CONFIGURATION isDebug="0" name="Release" targetName="daf_speech" />
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_core" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_data_structures" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_events" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_graphics" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_dsp" path="../../JUCE/modules" />
+      </MODULEPATHS>
+    </ANDROIDSTUDIO>
+    <XCODE_IPHONE targetFolder="Builds/iOS" customPList="&lt;key&gt;NSMicrophoneUsageDescription&lt;/key&gt;&#10;&lt;string&gt;Esta app necesita acceso al micrófono para procesamiento de audio&lt;/string&gt;&#10;&lt;key&gt;UIBackgroundModes&lt;/key&gt;&#10;&lt;array&gt;&#10;    &lt;string&gt;audio&lt;/string&gt;&#10;&lt;/array&gt;" microphonePermissionNeeded="1" iosBluetoothPermissionNeeded="1" iosDeviceFamily="1" iosInAppPurchases="1" pListPreprocess="1" bundleIdentifier="com.innlabs.dafSpeech" iosDevelopmentTeamID="KA3VXUTHC6" extraCompilerFlags="-DSWIFT_VERSION=5.0" iosBackgroundBle="1">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="daf_speech" customXcodeFlags="SWIFT_VERSION=5.0" />
+        <CONFIGURATION isDebug="0" name="Release" targetName="daf_speech" customXcodeFlags="SWIFT_VERSION=5.0" />
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_core" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_data_structures" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_events" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_graphics" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_dsp" path="../../JUCE/modules" />
+      </MODULEPATHS>
+    </XCODE_IPHONE>
+    <XCODE_MAC targetFolder="Builds/MacOSX" customPList="&lt;key&gt;NSMicrophoneUsageDescription&lt;/key&gt;&#10;&lt;string&gt;Esta aplicación necesita acceso al micrófono para proporcionar retroalimentación auditiva retardada (DAF)&lt;/string&gt;&#10;&#10;&lt;key&gt;NSApplicationSupportsAutomaticCustomizeToolbarMenu&lt;/key&gt;&#10;&lt;true/&gt;&#10;&#10;&lt;key&gt;NSApplicationSupportsSecureRestorableState&lt;/key&gt;&#10;&lt;true/&gt;">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="daf_speech" />
+        <CONFIGURATION isDebug="0" name="Release" targetName="daf_speech" />
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_core" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_data_structures" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_events" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_graphics" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/modules" />
+        <MODULEPATH id="juce_dsp" path="../../JUCE/modules" />
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+</JUCERPROJECT>

@@ -1,0 +1,129 @@
+#include "MainComponent.h"
+
+#if JUCE_MAC
+#include <objc/objc-runtime.h>
+
+void requestMicrophonePermission()
+{
+    auto avAudioSessionClass = (id)objc_getClass("AVAudioSession");
+    if (avAudioSessionClass != nullptr)
+    {
+        id sharedSession = ((id(*)(id, SEL))objc_msgSend)(avAudioSessionClass, sel_getUid("sharedInstance"));
+        ((void(*)(id, SEL, void(^)(BOOL)))objc_msgSend)(
+            sharedSession,
+            sel_getUid("requestRecordPermission:"),
+            ^(BOOL granted) {
+                DBG("Permisos del Microfono: " << (granted ? "OTORGADO" : "DENEGADO"));
+            });
+    }
+}
+#endif
+
+MainComponent::MainComponent()
+{
+    // Solicitar permisos de micrófono en macOS
+    #if JUCE_MAC
+        requestMicrophonePermission();
+    #endif
+
+    // Inicialización del dispositivo de audio
+    juce::String error = deviceManager.initialise(2, 2, nullptr, true); // 2 inputs, 2 outputs para estéreo
+    
+    // Configuración óptima del dispositivo
+    if (auto* device = deviceManager.getCurrentAudioDevice())
+    {
+        juce::AudioDeviceManager::AudioDeviceSetup setup;
+        deviceManager.getAudioDeviceSetup(setup);
+        
+        // Configurar sample rate (priorizar 44.1kHz)
+        auto sampleRates = device->getAvailableSampleRates();
+        if (!sampleRates.isEmpty()) {
+            setup.sampleRate = sampleRates.contains(44100.0) ? 44100.0 : sampleRates[0];
+        }
+        
+        // Configurar buffer size (priorizar 1024)
+        auto bufferSizes = device->getAvailableBufferSizes();
+        if (!bufferSizes.isEmpty()) {
+            const int desiredBufferSize = 1024;
+            if (bufferSizes.contains(desiredBufferSize)) {
+                setup.bufferSize = desiredBufferSize;
+            } else {
+                for (auto size : bufferSizes) {
+                    if (size >= desiredBufferSize) {
+                        setup.bufferSize = size;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        // Forzar configuración estéreo
+        setup.inputChannels = juce::BigInteger(2);
+        setup.outputChannels = juce::BigInteger(2);
+        
+        deviceManager.setAudioDeviceSetup(setup, true);
+        deviceManager.setCurrentAudioDeviceType("CoreAudio", true);
+
+        // Log de configuración
+        DBG("Configuracion de audio:");
+        DBG("- Dispositivo: " << device->getName());
+        DBG("- Sample rate: " << device->getCurrentSampleRate() << " Hz");
+        DBG("- Buffer size: " << device->getCurrentBufferSizeSamples() << " muestras");
+        DBG("- Canales entrada: " << device->getActiveInputChannels().toString(2));
+        DBG("- Canales salida: " << device->getActiveOutputChannels().toString(2));
+    }
+    else if (error.isNotEmpty())
+    {
+        DBG("Error inicializando audio: " << error);
+    }
+
+    // Inicialización del procesador y UI
+    processor = std::make_unique<DAFAudioProcessor>();
+    editor = std::make_unique<DAFAudioProcessorEditor>(*processor);
+
+    // Configuración inicial del audio
+    processor->setProcessingEnabled(true); // Procesamiento activado al iniciar
+    audioProcessorPlayer.setProcessor(processor.get());
+    deviceManager.addAudioCallback(&audioProcessorPlayer);
+
+    addAndMakeVisible(*editor);
+    setSize(editor->getWidth(), editor->getHeight());
+}
+
+MainComponent::~MainComponent()
+{
+    deviceManager.removeAudioCallback(&audioProcessorPlayer);
+    audioProcessorPlayer.setProcessor(nullptr);
+    editor = nullptr;
+    processor = nullptr;
+}
+
+void MainComponent::paint(juce::Graphics& g)
+{
+    g.fillAll(juce::Colours::black);
+}
+
+void MainComponent::resized()
+{
+    if (editor)
+        editor->setBounds(getLocalBounds());
+}
+
+
+void MainComponent::togglePlayback(bool shouldStart)
+{
+    if (shouldStart)
+    {
+        processor->setProcessingEnabled(true);
+        audioProcessorPlayer.setProcessor(processor.get());
+        deviceManager.addAudioCallback(&audioProcessorPlayer);
+        DBG("Procesamiento activado");
+    }
+    else
+    {
+        deviceManager.removeAudioCallback(&audioProcessorPlayer);
+        audioProcessorPlayer.setProcessor(nullptr);
+        processor->setProcessingEnabled(false);
+        DBG("Procesamiento detenido");
+    }
+}

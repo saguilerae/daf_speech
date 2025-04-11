@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="Bd9GIC" name="daf_speech" projectType="guiapp" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" bundleIdentifier="com.innlabs.dafSpeech"
+              pluginManufacturer="InnLabs" headerPath="../../External/SoundTouch/include/SoundTouch">
+  <MAINGROUP id="Khp35X" name="daf_speech">
+    <GROUP id="{4C29DB5D-9597-D839-778F-508FB01C511D}" name="Source">
+      <FILE id="Vgf34i" name="AAFilter.cpp" compile="1" resource="0" file="Source/External/SoundTouch/AAFilter.cpp"/>
+      <FILE id="CKsLVL" name="BPMDetect.cpp" compile="1" resource="0" file="Source/External/SoundTouch/BPMDetect.cpp"/>
+      <FILE id="ofMLz8" name="cpu_detect_x86.cpp" compile="1" resource="0"
+            file="Source/External/SoundTouch/cpu_detect_x86.cpp"/>
+      <FILE id="bpQBQz" name="FIFOSampleBuffer.cpp" compile="1" resource="0"
+            file="Source/External/SoundTouch/FIFOSampleBuffer.cpp"/>
+      <FILE id="w6XZeV" name="FIRFilter.cpp" compile="1" resource="0" file="Source/External/SoundTouch/FIRFilter.cpp"/>
+      <FILE id="eyEVsO" name="InterpolateCubic.cpp" compile="1" resource="0"
+            file="Source/External/SoundTouch/InterpolateCubic.cpp"/>
+      <FILE id="bENdkO" name="InterpolateLinear.cpp" compile="1" resource="0"
+            file="Source/External/SoundTouch/InterpolateLinear.cpp"/>
+      <FILE id="CV42hj" name="InterpolateShannon.cpp" compile="1" resource="0"
+            file="Source/External/SoundTouch/InterpolateShannon.cpp"/>
+      <FILE id="TyWTpl" name="mmx_optimized.cpp" compile="1" resource="0"
+            file="Source/External/SoundTouch/mmx_optimized.cpp"/>
+      <FILE id="I42hDz" name="PeakFinder.cpp" compile="1" resource="0" file="Source/External/SoundTouch/PeakFinder.cpp"/>
+      <FILE id="NtalBy" name="RateTransposer.cpp" compile="1" resource="0"
+            file="Source/External/SoundTouch/RateTransposer.cpp"/>
+      <FILE id="USTAU4" name="SoundTouch.cpp" compile="1" resource="0" file="Source/External/SoundTouch/SoundTouch.cpp"/>
+      <FILE id="miWiWU" name="sse_optimized.cpp" compile="1" resource="0"
+            file="Source/External/SoundTouch/sse_optimized.cpp"/>
+      <FILE id="Aqrpjl" name="TDStretch.cpp" compile="1" resource="0" file="Source/External/SoundTouch/TDStretch.cpp"/>
+      <FILE id="nLx2lh" name="Main.mm" compile="1" resource="0" file="Source/Main.mm"/>
+      <FILE id="FRFhsm" name="AudioLevelLabel.h" compile="0" resource="0"
+            file="Source/AudioLevelLabel.h"/>
+      <FILE id="G36BIy" name="AudioLevelLabel.cpp" compile="1" resource="0"
+            file="Source/AudioLevelLabel.cpp"/>
+      <FILE id="EzVE3n" name="DAFAudioProcessor.h" compile="0" resource="0"
+            file="Source/DAFAudioProcessor.h"/>
+      <FILE id="RageyB" name="DAFAudioProcessor.cpp" compile="1" resource="0"
+            file="Source/DAFAudioProcessor.cpp"/>
+      <FILE id="rVGh8L" name="DAFAudioProcessorEditor.h" compile="0" resource="0"
+            file="Source/DAFAudioProcessorEditor.h"/>
+      <FILE id="MJUgIL" name="DAFAudioProcessorEditor.mm" compile="1" resource="0"
+            file="Source/DAFAudioProcessorEditor.mm"/>
+      <FILE id="ToiBTp" name="PitchShifter.h" compile="0" resource="0" file="Source/PitchShifter.h"/>
+      <FILE id="mzyHzx" name="PitchShifter.cpp" compile="1" resource="0"
+            file="Source/PitchShifter.cpp"/>
+    </GROUP>
+    <GROUP id="{6F428E23-9F4D-1325-7811-CA2EB6C80932}" name="Resources">
+      <FILE id="koI7Cc" name="Icon-29x29@3x.png" compile="0" resource="1"
+            file="Resources/Icon-29x29@3x.png"/>
+      <FILE id="nzSCy5" name="Icon-60x60@3x.png" compile="0" resource="1"
+            file="Resources/Icon-60x60@3x.png"/>
+      <FILE id="kvrYfD" name="Icon-1024x1024@1x.png" compile="0" resource="1"
+            file="Resources/Icon-1024x1024@1x.png"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
+  <EXPORTFORMATS>
+    <ANDROIDSTUDIO targetFolder="Builds/Android">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="daf_speech"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="daf_speech"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../JUCE/modules"/>
+      </MODULEPATHS>
+    </ANDROIDSTUDIO>
+    <XCODE_IPHONE targetFolder="Builds/iOS" customPList="&lt;key&gt;NSMicrophoneUsageDescription&lt;/key&gt;&#10;&lt;string&gt;Esta app necesita acceso al micr&#243;fono para procesamiento de audio&lt;/string&gt;&#10;&lt;key&gt;UIBackgroundModes&lt;/key&gt;&#10;&lt;array&gt;&#10;    &lt;string&gt;audio&lt;/string&gt;&#10;&lt;/array&gt;"
+                  microphonePermissionNeeded="1" iosBluetoothPermissionNeeded="1"
+                  iosDeviceFamily="1" iosInAppPurchases="1" pListPreprocess="1"
+                  bundleIdentifier="com.innlabs.dafSpeech" iosDevelopmentTeamID="KA3VXUTHC6"
+                  extraCompilerFlags="-DSWIFT_VERSION=5.0" iosBackgroundBle="1"
+                  smallIcon="koI7Cc" bigIcon="kvrYfD">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="daf_speech" customXcodeFlags="SWIFT_VERSION=5.0"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="daf_speech" customXcodeFlags="SWIFT_VERSION=5.0"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_IPHONE>
+    <XCODE_MAC targetFolder="Builds/MacOSX" customPList="&lt;key&gt;NSMicrophoneUsageDescription&lt;/key&gt;&#10;&lt;string&gt;Esta aplicaci&#243;n necesita acceso al micr&#243;fono para proporcionar retroalimentaci&#243;n auditiva retardada (DAF)&lt;/string&gt;&#10;&#10;&lt;key&gt;NSApplicationSupportsAutomaticCustomizeToolbarMenu&lt;/key&gt;&#10;&lt;true/&gt;&#10;&#10;&lt;key&gt;NSApplicationSupportsSecureRestorableState&lt;/key&gt;&#10;&lt;true/&gt;">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="daf_speech"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="daf_speech"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+</JUCERPROJECT>
